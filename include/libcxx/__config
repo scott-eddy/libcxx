@@ -323,6 +323,9 @@ typedef __char32_t char32_t;
 #if defined(__FreeBSD__)
 #define _LIBCPP_HAS_QUICK_EXIT
 #define _LIBCPP_HAS_C11_FEATURES
+#elif defined(__NuttX__)
+#define _LIBCPP_HAS_QUICK_EXIT
+#define _LIBCPP_HAS_C11_FEATURES
 #elif defined(__Fuchsia__)
 #define _LIBCPP_HAS_QUICK_EXIT
 #define _LIBCPP_HAS_C11_FEATURES
@@ -823,6 +826,7 @@ extern "C" void __sanitizer_annotate_contiguous_container(
 # if defined(__FreeBSD__) || \
     defined(__Fuchsia__) || \
     defined(__NetBSD__) || \
+    defined(__NuttX__) || \
     defined(__linux__) || \
     defined(__APPLE__) || \
     defined(__CloudABI__) || \
