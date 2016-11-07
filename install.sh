@@ -87,6 +87,15 @@ if [ -d "${uclibc_incdir}" ]; then
   exit 1
 fi
 
+machine_incdir=${nuttx_incdir}/machine
+
+if [ -d "${machine_incdir}" ]; then
+  echo "ERROR: Directory ${machine_incdir} already exists"
+  echo "       Please remove the  ${machine_incdir} directory and try again"
+  echo $usage
+  exit 1
+fi
+
 # Licensing
 
 echo "Installing LLVM/libcxx in the NuttX source tree"
