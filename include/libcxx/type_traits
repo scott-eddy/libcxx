@@ -390,6 +390,9 @@ namespace std
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 template <class _T1, class _T2> struct _LIBCPP_TYPE_VIS_ONLY pair;
@@ -4693,5 +4696,7 @@ struct __can_extract_map_key<_ValTy, _Key, _Key, _RawValTy>
 #endif
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_TYPE_TRAITS

@@ -220,6 +220,9 @@ template <class charT> class messages_byname;
 #include <__bsd_locale_fallbacks.h>
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 #if defined(__APPLE__) || defined(__FreeBSD__)
@@ -4251,5 +4254,7 @@ wbuffer_convert<_Codecvt, _Elem, _Tr>::__close()
 }
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_LOCALE

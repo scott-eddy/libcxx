@@ -224,6 +224,9 @@ storage-class-specifier const error_category& iostream_category() noexcept;
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 typedef ptrdiff_t streamsize;
@@ -1024,5 +1027,7 @@ public:
 };
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_IOS

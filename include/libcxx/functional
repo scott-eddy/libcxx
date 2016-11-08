@@ -492,6 +492,9 @@ POLICY:  For non-variadic implementations, the number of arguments is limited
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 #if _LIBCPP_STD_VER > 11
@@ -2704,5 +2707,7 @@ __not_fn_imp<decay_t<_RawFunc>> not_fn(_RawFunc&& __fn) {
 // struct hash<T*> in <memory>
 
 _LIBCPP_END_NAMESPACE_STD
+
+} //extern C++
 
 #endif  // _LIBCPP_FUNCTIONAL

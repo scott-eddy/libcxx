@@ -12,6 +12,9 @@
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 template <bool>
@@ -636,5 +639,7 @@ swap(__split_buffer<_Tp, _Allocator>& __x, __split_buffer<_Tp, _Allocator>& __y)
 
 
 _LIBCPP_END_NAMESPACE_STD
+
+} //extern C++
 
 #endif  // _LIBCPP_SPLIT_BUFFER

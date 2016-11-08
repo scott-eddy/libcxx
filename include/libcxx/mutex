@@ -200,6 +200,9 @@ template<class Callable, class ...Args>
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 #ifndef _LIBCPP_HAS_NO_THREADS
@@ -669,5 +672,7 @@ private:
 #endif // _LIBCPP_ABI_VARIADIC_LOCK_GUARD
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_MUTEX

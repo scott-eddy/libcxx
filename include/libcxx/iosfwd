@@ -93,6 +93,9 @@ typedef fpos<char_traits<wchar_t>::state_type> wstreampos;
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 class _LIBCPP_TYPE_VIS ios_base;
@@ -200,5 +203,7 @@ template <class _Tp, class _Alloc = allocator<_Tp> >
 class _LIBCPP_TYPE_VIS_ONLY vector;
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_IOSFWD

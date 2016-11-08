@@ -146,6 +146,9 @@ template <class... Types>
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 #ifndef _LIBCPP_HAS_NO_VARIADICS
@@ -1386,5 +1389,7 @@ _LIBCPP_NOEXCEPT_RETURN(
 #endif // _LIBCPP_STD_VER > 14
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_TUPLE

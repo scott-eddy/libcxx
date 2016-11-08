@@ -70,6 +70,9 @@ template <class M, class N>
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 template <class _InputIterator, class _Tp>
@@ -255,5 +258,7 @@ lcm(_Tp __m, _Up __n)
 #endif /* _LIBCPP_STD_VER > 14 */
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_NUMERIC

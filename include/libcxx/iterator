@@ -429,6 +429,9 @@ template <class E> constexpr const E* data(initializer_list<E> il) noexcept;    
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 struct _LIBCPP_TYPE_VIS_ONLY input_iterator_tag {};
@@ -1777,5 +1780,7 @@ constexpr const _Ep* data(initializer_list<_Ep> __il) noexcept { return __il.beg
 
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_ITERATOR

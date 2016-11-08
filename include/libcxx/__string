@@ -64,6 +64,9 @@ template <> struct char_traits<wchar_t>;
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 // char_traits
@@ -722,5 +725,7 @@ struct __quoted_output_proxy
 };
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP___STRING

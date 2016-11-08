@@ -45,6 +45,9 @@
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 class _LIBCPP_TYPE_VIS locale;
@@ -1472,5 +1475,7 @@ private:
 };
 
 _LIBCPP_END_NAMESPACE_STD
+
+} //extern C++
 
 #endif  // _LIBCPP___LOCALE

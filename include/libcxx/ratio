@@ -89,6 +89,9 @@ typedef ratio<1000000000000000000000000, 1> yotta;  // not supported
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 // __static_gcd
@@ -519,5 +522,7 @@ template <class _R1, class _R2> _LIBCPP_CONSTEXPR bool ratio_greater_equal_v
 #endif
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_RATIO

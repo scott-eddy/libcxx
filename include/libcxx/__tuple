@@ -19,6 +19,8 @@
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
 
 _LIBCPP_BEGIN_NAMESPACE_STD
 
@@ -537,5 +539,7 @@ struct __sfinae_assign_base<false, true> {
 #endif // _LIBCPP_STD_VER > 14
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP___TUPLE

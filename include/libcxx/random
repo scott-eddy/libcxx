@@ -1652,6 +1652,9 @@ class piecewise_linear_distribution
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 // __is_seed_sequence
@@ -6720,5 +6723,7 @@ operator>>(basic_istream<_CharT, _Traits>& __is,
 }
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_RANDOM
