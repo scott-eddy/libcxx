@@ -156,7 +156,8 @@
 #   define _LIBCPP_BIG_ENDIAN    1
 # endif  // _BYTE_ORDER == _LITTLE_ENDIAN
 # define _LIBCPP_HAS_QUICK_EXIT
-#endif  // __NetBSD__
+typedef decltype(nullptr) nullptr_t;
+#endif  // __NuttX__
 
 #ifdef _WIN32
 #  define _LIBCPP_LITTLE_ENDIAN 1
