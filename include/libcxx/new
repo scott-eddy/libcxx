@@ -213,6 +213,9 @@ inline _LIBCPP_INLINE_VISIBILITY void* operator new[](std::size_t, void* __p) _N
 inline _LIBCPP_INLINE_VISIBILITY void  operator delete  (void*, void*) _NOEXCEPT {}
 inline _LIBCPP_INLINE_VISIBILITY void  operator delete[](void*, void*) _NOEXCEPT {}
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 inline _LIBCPP_INLINE_VISIBILITY void *__allocate(size_t __size) {
@@ -244,5 +247,7 @@ void __throw_bad_array_length()
 #endif
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // export C++
 
 #endif  // _LIBCPP_NEW
