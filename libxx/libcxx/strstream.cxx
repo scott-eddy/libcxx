@@ -268,7 +268,7 @@ strstreambuf::seekoff(off_type __off, ios_base::seekdir __way, ios_base::openmod
             newoff = seekhigh - eback();
             break;
         default:
-            _LIBCPP_UNREACHABLE();
+            ;//_LIBCPP_UNREACHABLE(); //FIXME: just comment to compile correctly
         }
         newoff += __off;
         if (0 <= newoff && newoff <= seekhigh - eback())
