@@ -23,6 +23,9 @@
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 static const int __limit = 8;
@@ -354,5 +357,7 @@ __stdoutbuf<_CharT>::imbue(const locale& __loc)
 }
 
 _LIBCPP_END_NAMESPACE_STD
+
+} //extern C++
 
 #endif  // _LIBCPP___STD_STREAM

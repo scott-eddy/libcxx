@@ -53,6 +53,9 @@ public:
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 class _LIBCPP_HIDDEN __libcpp_refstring
@@ -266,5 +269,7 @@ void __throw_underflow_error(const char*__msg)
 }
 
 _LIBCPP_END_NAMESPACE_STD
+
+} //extern C++
 
 #endif  // _LIBCPP_STDEXCEPT

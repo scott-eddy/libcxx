@@ -28,6 +28,9 @@
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 
@@ -2617,5 +2620,7 @@ __hash_table<_Tp, _Hash, _Equal, _Alloc>::__subscriptable(const const_iterator*,
 
 #endif  // _LIBCPP_DEBUG_LEVEL >= 2
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP__HASH_TABLE

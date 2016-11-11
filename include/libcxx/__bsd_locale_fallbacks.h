@@ -17,6 +17,9 @@
 #include <stdlib.h>
 #include <memory>
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 typedef _VSTD::remove_pointer<locale_t>::type __use_locale_struct;
@@ -134,5 +137,7 @@ int __libcpp_sscanf_l(const char *__s, locale_t __l, const char *__format, ...) 
 }
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif // _LIBCPP_BSD_LOCALE_FALLBACKS_DEFAULTS_H

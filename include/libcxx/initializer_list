@@ -50,6 +50,9 @@ template<class E> const E* end(initializer_list<E> il) noexcept; // constexpr in
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 namespace std  // purposefully not versioned
 {
 
@@ -114,5 +117,7 @@ end(initializer_list<_Ep> __il) _NOEXCEPT
 #endif  // _LIBCPP_HAS_NO_GENERALIZED_INITIALIZERS
 
 }  // std
+
+} // extern C++
 
 #endif  // _LIBCPP_INITIALIZER_LIST
