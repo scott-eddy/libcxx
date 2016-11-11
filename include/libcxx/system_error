@@ -333,13 +333,13 @@ _LIBCPP_DECLARE_STRONG_ENUM(errc)
 #endif
     not_connected                       = ENOTCONN,
     not_enough_memory                   = ENOMEM,
-    not_supported                       = ENOTSUP,
+    //not_supported                       = ENOTSUP,
     operation_canceled                  = ECANCELED,
     operation_in_progress               = EINPROGRESS,
     operation_not_permitted             = EPERM,
     operation_not_supported             = EOPNOTSUPP,
     operation_would_block               = EWOULDBLOCK,
-    owner_dead                          = EOWNERDEAD,
+    //owner_dead                          = EOWNERDEAD,
     permission_denied                   = EACCES,
     protocol_error                      = EPROTO,
     protocol_not_supported              = EPROTONOSUPPORT,
@@ -347,7 +347,7 @@ _LIBCPP_DECLARE_STRONG_ENUM(errc)
     resource_deadlock_would_occur       = EDEADLK,
     resource_unavailable_try_again      = EAGAIN,
     result_out_of_range                 = ERANGE,
-    state_not_recoverable               = ENOTRECOVERABLE,
+    //state_not_recoverable               = ENOTRECOVERABLE,
 #ifdef ETIME
     stream_timeout                      = ETIME,
 #else
