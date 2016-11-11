@@ -64,7 +64,7 @@
 #define _LIBCPP_CONCAT1(_LIBCPP_X,_LIBCPP_Y) _LIBCPP_X##_LIBCPP_Y
 #define _LIBCPP_CONCAT(_LIBCPP_X,_LIBCPP_Y) _LIBCPP_CONCAT1(_LIBCPP_X,_LIBCPP_Y)
 
-#define _LIBCPP_NAMESPACE _LIBCPP_CONCAT(__,_LIBCPP_ABI_VERSION)
+#define _LIBCPP_NAMESPACE
 
 #if __cplusplus < 201103L
 #define _LIBCPP_CXX03_LANG
@@ -370,13 +370,12 @@ typedef __char32_t char32_t;
 #endif
 
 // Inline namespaces are available in Clang regardless of C++ dialect.
-#define _LIBCPP_BEGIN_NAMESPACE_STD namespace std {inline namespace _LIBCPP_NAMESPACE {
-#define _LIBCPP_END_NAMESPACE_STD  } }
-#define _VSTD std::_LIBCPP_NAMESPACE
+#define _LIBCPP_BEGIN_NAMESPACE_STD namespace std {
+#define _LIBCPP_END_NAMESPACE_STD  }
+#define _VSTD std
 
 namespace std {
-  inline namespace _LIBCPP_NAMESPACE {
-  }
+
 }
 
 #if !defined(_LIBCPP_HAS_NO_ASAN) && !__has_feature(address_sanitizer)
@@ -464,14 +463,12 @@ namespace std {
 
 #endif  // __GXX_EXPERIMENTAL_CXX0X__
 
-#define _LIBCPP_BEGIN_NAMESPACE_STD namespace std { namespace _LIBCPP_NAMESPACE {
-#define _LIBCPP_END_NAMESPACE_STD  } }
-#define _VSTD std::_LIBCPP_NAMESPACE
+#define _LIBCPP_BEGIN_NAMESPACE_STD namespace std {
+#define _LIBCPP_END_NAMESPACE_STD  }
+#define _VSTD std
 
 namespace std {
-namespace _LIBCPP_NAMESPACE {
-}
-using namespace _LIBCPP_NAMESPACE __attribute__((__strong__));
+
 }
 
 #if !defined(_LIBCPP_HAS_NO_ASAN) && !defined(__SANITIZE_ADDRESS__)
@@ -521,13 +518,12 @@ namespace std {
 #define __MULTILOCALE_API
 #endif
 
-#define _LIBCPP_BEGIN_NAMESPACE_STD namespace std {inline namespace _LIBCPP_NAMESPACE {
-#define _LIBCPP_END_NAMESPACE_STD  } }
-#define _VSTD std::_LIBCPP_NAMESPACE
+#define _LIBCPP_BEGIN_NAMESPACE_STD namespace std {
+#define _LIBCPP_END_NAMESPACE_STD  }
+#define _VSTD std
 
 namespace std {
-  inline namespace _LIBCPP_NAMESPACE {
-  }
+
 }
 
 #define _LIBCPP_HAS_NO_ASAN
