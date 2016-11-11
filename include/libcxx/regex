@@ -771,6 +771,9 @@ typedef regex_token_iterator<wstring::const_iterator> wsregex_token_iterator;
 #pragma GCC system_header
 #endif
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 namespace regex_constants
@@ -6561,5 +6564,7 @@ regex_replace(const _CharT* __s,
 }
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_REGEX

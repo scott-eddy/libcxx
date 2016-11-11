@@ -164,6 +164,9 @@ template <class T, class Allocator>
 
 #include <__undef_min_max>
 
+extern "C++"
+{
+
 _LIBCPP_BEGIN_NAMESPACE_STD
 
 template <class _Tp, class _Allocator> class __deque_base;
@@ -2904,5 +2907,7 @@ swap(deque<_Tp, _Allocator>& __x, deque<_Tp, _Allocator>& __y)
 }
 
 _LIBCPP_END_NAMESPACE_STD
+
+} // extern C++
 
 #endif  // _LIBCPP_DEQUE
