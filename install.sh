@@ -102,8 +102,11 @@ echo "Installing LLVM/libcxx in the NuttX source tree"
 
 filelist=`find libxx -type f`
 
+
 for file in $filelist; do
-  install -D $file ${nuttx_path}/${file}
+  source_path=$(dirname $file)
+  install -d ${nuttx_path}/${source_path} 
+  install $file ${nuttx_path}/${file} 
 done
 
 mkdir -p ${uclibc_incdir}
@@ -111,7 +114,9 @@ mkdir -p ${uclibc_incdir}
 filelist=`find include -type f`
 
 for file in $filelist; do
-  install -D $file ${nuttx_path}/${file}
+  include_path=$(dirname $file)
+  install -d ${nuttx_path}/${include_path} 
+  install $file ${nuttx_path}/${file} 
 done
 
 echo "Installation suceeded"
