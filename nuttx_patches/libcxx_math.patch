@@ -1,0 +1,29 @@
+diff --git a/include/cxx/cmath b/include/cxx/cmath
+index 998406c..b635505 100644
+--- a/include/cxx/cmath
++++ b/include/cxx/cmath
+@@ -103,6 +103,8 @@ namespace std
+   using ::sqrt;
+   using ::tan;
+   using ::tanh;
++  using ::gamma;
++  using ::lgamma;
+ #endif
+ 
+ #ifdef CONFIG_HAVE_LONG_DOUBLE
+diff --git a/include/nuttx/lib/math.h b/include/nuttx/lib/math.h
+index 64db8d7..a394d54 100644
+--- a/include/nuttx/lib/math.h
++++ b/include/nuttx/lib/math.h
+@@ -212,6 +212,11 @@ long double expl  (long double x);
+ #define expm1l(x) (expl(x) - 1.0)
+ #endif
+ 
++#ifdef CONFIG_HAVE_DOUBLE
++double      gamma(double x);
++double      lgamma(double x);
++#endif
++
+ float       logf  (float x);
+ #ifdef CONFIG_HAVE_DOUBLE
+ double      log   (double x);

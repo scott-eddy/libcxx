@@ -1,5 +1,5 @@
 #!/bin/bash
-
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 usage="USAGE: $0 <full path to the NuttX directory>"
 
 # Get the single, required command line argument
@@ -22,7 +22,7 @@ fi
 
 if [ ! -d include ]; then
   echo "ERROR: Directory include does not exist in this directory"
-  echo "       Please CD into the uClibc++ directory and try again"
+  echo "       Please CD into the libcxx directory and try again"
   echo $usage
   exit 1
 fi
@@ -53,11 +53,11 @@ if [ ! -f "${libxx_srcdir}/Makefile" ]; then
   exit 1
 fi
 
-uclibc_srcdir=${libxx_srcdir}/libcxx
+libcxx_srcdir=${libxx_srcdir}/libcxx
 
-if [ -d "${uclibc_srcdir}" ]; then
-  echo "ERROR: Directory ${uclibc_srcdir} already exists"
-  echo "       Please remove the  ${uclibc_srcdir} directory and try again"
+if [ -d "${libcxx_srcdir}" ]; then
+  echo "ERROR: Directory ${libcxx_srcdir} already exists"
+  echo "       Please remove the  ${libcxx_srcdir} directory and try again"
   echo $usage
   exit 1
 fi
@@ -78,11 +78,11 @@ if [ ! -d "${nuttxcxx_incdir}" ]; then
   exit 1
 fi
 
-uclibc_incdir=${nuttx_incdir}/libcxx
+libcxx_incdir=${nuttx_incdir}/libcxx
 
-if [ -d "${uclibc_incdir}" ]; then
-  echo "ERROR: Directory ${uclibc_incdir} already exists"
-  echo "       Please remove the  ${uclibc_incdir} directory and try again"
+if [ -d "${libcxx_incdir}" ]; then
+  echo "ERROR: Directory ${libcxx_incdir} already exists"
+  echo "       Please remove the  ${libcxx_incdir} directory and try again"
   echo $usage
   exit 1
 fi
@@ -96,28 +96,92 @@ if [ -d "${machine_incdir}" ]; then
   exit 1
 fi
 
-# Licensing
-
+#---------------------------Installation--------------------------------------# 
 echo "Installing LLVM/libcxx in the NuttX source tree"
 
+
+echo "Copying source files into place"
 filelist=`find libxx -type f`
-
-
 for file in $filelist; do
   source_path=$(dirname $file)
   install -d ${nuttx_path}/${source_path} 
+  if [ $? -ne 0 ]; then
+    echo "Failed to copy over directoy ${nuttx_path}/${source_path}"
+    exit 1
+  fi
+  
   install $file ${nuttx_path}/${file} 
+  if [ $? -ne 0 ]; then
+    echo "Failed to copy over file ${nuttx_path}/${file}"
+    exit 1
+  fi
 done
 
-mkdir -p ${uclibc_incdir}
 
+echo "Copying include files into place"
+mkdir -p ${libcxx_incdir}
 filelist=`find include -type f`
-
 for file in $filelist; do
   include_path=$(dirname $file)
   install -d ${nuttx_path}/${include_path} 
+  if [ $? -ne 0 ]; then
+    echo "Failed to copy over directoy ${nuttx_path}/${include_path}"
+    exit 1
+  fi
+  
   install $file ${nuttx_path}/${file} 
+  if [ $? -ne 0 ]; then
+    echo "Failed to copy over file ${nuttx_path}/${file}"
+    exit 1
+  fi
 done
+
+echo "Applying necessary patches to NuttX"
+patchlist=`find nuttx_patches -type f`
+cd ${nuttx_path}
+for patch in $patchlist; do
+  git apply ${script_dir}/$patch
+  if [ $? -ne 0 ]; then
+    echo "Failed to apply patch ${script_dir}/${patch}"
+    cd ${script_dir}
+    exit 1
+  fi
+done
+cd ${script_dir}
+
+#---------------------------Config Installation-------------------------------------# 
+
+echo "Copying configurations into NuttX source tree"
+
+config_list=`find configs -type d -mindepth 2`
+for config in $config_list; do
+  if [ -d ${nuttx_path}/$config ]; then
+    echo "Configuration $config already exists in the NuttX tree, skipping"
+  else
+    echo "Copying $config into NuttX tree"
+    file_list=`find $config -type f`
+    for file in $file_list; do
+      config_dir=$(dirname $file)
+      
+      install -d ${nuttx_path}/${config_dir}      
+      if [ $? -ne 0 ]; then
+        echo "Failed to copy over directoy ${nuttx_path}/${config_dir}"
+        exit 1
+      fi
+  
+      install $file ${nuttx_path}/${file} 
+      if [ $? -ne 0 ]; then
+        echo "Failed to copy over file ${nuttx_path}/${file}"
+        exit 1
+      fi
+
+    done
+
+  fi
+
+done
+
+
 
 echo "Installation suceeded"
 echo ""
